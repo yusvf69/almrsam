@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pottery & Ceramics</title>
+  <style>
+    :root {
+      --cultured: hsla(0, 0%, 97%, 1);
+      --french-bistre: hsla(31, 17%, 44%, 1);
+      --jet: hsla(0, 0%, 20%, 1);
+      --bistre: hsla(35, 100%, 9%, 1);
+      --camel: hsla(30, 30%, 58%, 1);
+      --granite-gray: hsla(0, 0%, 38%, 1);
+      --white: hsla(0, 0%, 100%, 1);
+      --black: hsla(0, 0%, 0%, 1);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cultured);
+      margin: 0;
+      padding: 0;
+      color: var(--jet);
+    }
+
+    .navbar {
+      background: linear-gradient(90deg, var(--bistre), var(--camel));
+      padding: 15px 30px;
+      text-align: center;
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img, .card video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--camel);
+    }
+
+    .card h3 {
+      padding: 15px;
+      margin: 0;
+      text-align: center;
+      color: var(--french-bistre);
+    }
+
+    .join-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, var(--camel), var(--bistre));
+      border: none;
+      border-radius: 25px;
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .join-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">Pottery & Ceramics</div>
+
+  <div class="gallery" id="gallery"></div>
+
+  <button class="join-btn" onclick="window.location.href='courses.html'">
+    Join Course
+  </button>
+      <button class="join-btn" onclick="window.location.href='courses.html'">
+    Join Workshop
+  </button>
+
+  <script>
+ const items = [
+  "1.jpg",
+  "2.jpg",
+  "3.jpg",
+  "4.jpg",
+  "5.jpg",
+  "6.jpg",
+  "7.jpg",
+  "8.jpg",
+  "9.jpg",
+  "10.jpg",
+  "11.jpg",
+  "12.jpg",
+  "13.jpg",
+  "14.mp4",
+  "15.jpg",
+  "16.jpg",
+  "17.jpg",
+  "18.jpg",
+  "19.jpg",
+  "20.jpg",
+  "21.jpg",
+  "22.jpg",
+  "23.jpg",
+  "24.mp4",
+  "25.mp4",
+  "26.mp4",
+  "27.jpg",
+  "28.jpg",
+  "29.mp4",
+  "30.jpg",
+  "31.jpg",
+  "32.jpg",
+  "33.jpg",
+  "34.jpg",
+  "35.jpg",
+  "36.jpg",
+  "37.jpg",
+  "38.jpg"
+];
+
+    const container = document.getElementById("gallery");
+
+    items.forEach((src, i) => {
+      const isVideo = src.toLowerCase().endsWith(".mp4");
+
+      container.innerHTML += `
+        <div class="card">
+          ${
+            isVideo
+              ? `<video src="${src}" controls loading="lazy"></video>`
+              : `<img src="${src}" loading="lazy" alt="Gallery ${i+1}">`
+          }
+          <h3>Gallery ${i+1}</h3>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
