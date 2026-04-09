@@ -339,32 +339,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* RTL Support */
-.rtl {
-  direction: rtl;
-}
-
-.rtl .navbar {
-  right: 0;
-  left: auto;
-}
-
-.rtl .navbar.active {
-  transform: translateX(-350px);
-}
-
-.rtl .hero-content {
-  text-align: right;
-}
-
-.rtl .footer-top {
-  direction: rtl;
-}
-
-.rtl .social-list {
-  justify-content: flex-start;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -741,15 +715,21 @@ body {
   text-align: center;
 }
 
-.copyright {
+.footer-bottom .copyright {
   color: var(--french-bistre);
   font-family: var(--ff-rosario);
   font-size: var(--fs-5);
+  white-space: nowrap;
+  display: inline;
+  width: auto;
 }
 
-
-
-
+.footer-bottom .copyright a {
+  color: var(--french-bistre);
+  display: inline;
+  width: auto;
+  float: none;
+}
 
 /*-----------------------------------*\
   #MEDIA QUERIES

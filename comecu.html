@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon - Courses</title>
+<style>
+:root {
+  --bistre: hsla(35, 100%, 9%, 1);
+  --french-bistre: hsla(31, 17%, 44%, 1);
+  --camel: hsla(30, 30%, 58%, 1);
+  --umber: hsla(31, 17%, 36%, 1);
+  --white: hsla(0,0%,100%,1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+  background: linear-gradient(120deg, var(--bistre), var(--umber), var(--camel), var(--french-bistre));
+  background-size: 400% 400%;
+  animation: gradientMove 25s ease infinite;
+  color: var(--white);
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  25% {background-position: 50% 100%;}
+  50% {background-position: 100% 50%;}
+  75% {background-position: 50% 0%;}
+  100% {background-position: 0% 50%;}
+}
+
+.coming-soon {
+  position: relative;
+  text-align: center;
+  padding: 60px 70px;
+  border-radius: 25px;
+  background: rgba(0,0,0,0.45);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.5s ease;
+  overflow:hidden;
+}
+
+.coming-soon:hover {
+  transform: scale(1.05) rotate(1deg);
+  background: rgba(0,0,0,0.55);
+  box-shadow: 0 35px 80px rgba(0,0,0,0.9);
+}
+
+.coming-soon::before {
+  content:'';
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+  animation: overlayGlow 8s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes overlayGlow {
+  0% { transform: rotate(0deg) translate(0,0);}
+  50% { transform: rotate(180deg) translate(20px,20px);}
+  100% { transform: rotate(360deg) translate(0,0);}
+}
+
+.coming-soon h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--camel), var(--french-bistre), var(--umber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coming-soon p {
+  font-size: 1.5rem;
+  margin-bottom: 35px;
+  color: var(--white);
+}
+
+.coming-soon button {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border:none;
+  border-radius:15px;
+  background: linear-gradient(45deg, var(--french-bistre), var(--camel));
+  color: var(--white);
+  cursor:pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.coming-soon button:hover {
+  background: linear-gradient(45deg, var(--camel), var(--french-bistre));
+  transform: scale(1.15) rotate(-1deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+</style>
+</head>
+<body>
+  <div class="coming-soon">
+    <h1>Coming Soon</h1>
+    <p>Our Courses Platform is Launching Soon</p>
+    <button onclick="history.back()">Back</button>
+  </div>
+</body>
+</html>

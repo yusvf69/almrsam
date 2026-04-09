@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pottery & Ceramics</title>
+  <title>Music - Al Marsam</title>
+  <meta name="description" content="Explore our music gallery featuring workshops and performances">
   <style>
     :root {
       --cultured: hsla(0, 0%, 97%, 1);
@@ -11,11 +12,8 @@
       --jet: hsla(0, 0%, 20%, 1);
       --bistre: hsla(35, 100%, 9%, 1);
       --camel: hsla(30, 30%, 58%, 1);
-      --granite-gray: hsla(0, 0%, 38%, 1);
       --white: hsla(0, 0%, 100%, 1);
-      --black: hsla(0, 0%, 0%, 1);
     }
-
     body {
       font-family: Arial, sans-serif;
       background: var(--cultured);
@@ -23,7 +21,6 @@
       padding: 0;
       color: var(--jet);
     }
-
     .navbar {
       background: linear-gradient(90deg, var(--bistre), var(--camel));
       padding: 15px 30px;
@@ -33,7 +30,6 @@
       font-weight: bold;
       letter-spacing: 1px;
     }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -42,7 +38,6 @@
       margin: 40px auto;
       padding: 0 20px;
     }
-
     .card {
       background: var(--white);
       border-radius: 16px;
@@ -50,89 +45,82 @@
       overflow: hidden;
       transition: transform 0.3s ease;
     }
-
     .card:hover {
       transform: translateY(-5px);
     }
-
     .card img, .card video {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-bottom: 2px solid var(--camel);
+      background: #f0f0f0;
+      display: block;
     }
-
     .card h3 {
       padding: 15px;
       margin: 0;
       text-align: center;
       color: var(--french-bistre);
     }
-
-    .join-btn {
-      display: block;
-      margin: 40px auto;
-      padding: 12px 28px;
-      background: linear-gradient(90deg, var(--camel), var(--bistre));
-      border: none;
-      border-radius: 25px;
-      color: var(--white);
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .join-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
-    }
+    .btn-container { display: flex; gap: 15px; justify-content: center; margin: 30px 0 50px; flex-wrap: wrap; }
+    .btn-link { padding: 14px 28px; border-radius: 12px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: 0.3s; }
+    .btn-workshop { background: linear-gradient(45deg, var(--bistre), var(--camel)); color: white; }
+    .btn-workshop:hover { opacity: 0.9; transform: scale(1.05); }
+    .btn-course { background: linear-gradient(45deg, var(--camel), var(--bistre)); color: white; }
+    .btn-course:hover { opacity: 0.9; transform: scale(1.05); }
+    .btn-store { background: linear-gradient(45deg, var(--french-bistre), var(--umber)); color: white; }
+    .btn-store:hover { opacity: 0.9; transform: scale(1.05); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; }
+    .card.hidden { display: none; }
   </style>
 </head>
-<body>
-  <div class="navbar">Pottery & Ceramics</div>
-
+  <body>
+  <div class="navbar">
+    <span>Music</span>
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="filterGallery()" style="padding:5px 10px; border-radius:8px; border:none; font-size:14px;">
+  </div>
   <div class="gallery" id="gallery"></div>
-
-  <button class="join-btn" onclick="window.location.href='courses.html'">
-    Join Course
-  </button>
-      <button class="join-btn" onclick="window.location.href='courses.html'">
-    Join Workshop
-  </button>
-
+  <div class="btn-container">
+    <a href="https://workshops-cyan.vercel.app" class="btn-link btn-workshop" target="_blank">Join Workshop</a>
+    <a href="../comecu.html" class="btn-link btn-course">Start Course</a>
+    <a href="../comesh.html" class="btn-link btn-store">Buy What You Want</a>
+  </div>
   <script>
-  const items = [
-  "1.mp4",
-  "2.mp4",
-  "3.mp4",
-  "4.mp4",
-  "5.mp4",
-  "6.mp4",
-  "7.mp4",
-  "8.mp4",
-  "9.mp4",
-  "10.mp4",
-  "11.mp4"
-];
-
+    const items = [
+      "1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4",
+      "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4",
+      "11.mp4"
+    ];
     const container = document.getElementById("gallery");
-
     items.forEach((src, i) => {
       const isVideo = src.toLowerCase().endsWith(".mp4");
-
-      container.innerHTML += `
-        <div class="card">
-          ${
-            isVideo
-              ? `<video src="${src}" controls loading="lazy"></video>`
-              : `<img src="${src}" loading="lazy" alt="Gallery ${i+1}">`
-          }
-          <h3>Gallery ${i+1}</h3>
-        </div>
-      `;
+      const card = document.createElement("div");
+      card.className = "card";
+      if (isVideo) {
+        const video = document.createElement("video");
+        video.src = src;
+        video.controls = true;
+        video.preload = "metadata";
+        video.playsInline = true;
+        card.appendChild(video);
+      } else {
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+        img.alt = `Gallery ${i+1}`;
+        card.appendChild(img);
+      }
+      const h3 = document.createElement("h3");
+      h3.textContent = `Gallery ${i+1}`;
+      card.appendChild(h3);
+      container.appendChild(card);
     });
+    function filterGallery() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      document.querySelectorAll(".card").forEach(card => {
+        card.classList.toggle("hidden", !card.querySelector("h3").textContent.toLowerCase().includes(input));
+      });
+    }
   </script>
 </body>
 </html>
