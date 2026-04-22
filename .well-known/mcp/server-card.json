@@ -1,0 +1,15 @@
+{
+  "serverInfo": {
+    "name": "Al Marsam",
+    "version": "1.0.0",
+    "description": "Al Marsam - Handicrafts and creative arts platform"
+  },
+  "transport": {
+    "type": "http",
+    "endpoint": "https://al-marsam.vercel.app/api/mcp"
+  },
+  "capabilities": {
+    "resources": ["gallery", "courses", "store"],
+    "tools": []
+  }
+}

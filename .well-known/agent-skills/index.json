@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/skills.json",
+  "skills": [
+    {
+      "name": "View Gallery",
+      "type": "resource",
+      "description": "Browse handicrafts gallery collections",
+      "url": "https://al-marsam.vercel.app/Painting/index.html",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "View Courses",
+      "type": "resource",
+      "description": "Browse available art courses",
+      "url": "https://al-marsam.vercel.app/comecu.html",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Visit Store",
+      "type": "resource",
+      "description": "Browse online store for handicrafts",
+      "url": "https://al-marsam.vercel.app/comesh.html",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

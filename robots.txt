@@ -1,0 +1,32 @@
+# Al Marsam Robots.txt
+# https://al-marsam.vercel.app
+
+User-agent: *
+Allow: /
+
+# AI Crawlers - Block training/learning
+User-agent: GPTBot
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Other
+Disallow: /
+
+# Content Signals - Declare content preferences
+Content-Signal: ai-train=no
+Content-Signal: search=yes
+Content-Signal: ai-input=no
+
+# Sitemap
+Sitemap: https://al-marsam.vercel.app/sitemap.xml

@@ -1,0 +1,18 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://al-marsam.vercel.app",
+      "rel": ["service-desc", "service-doc"],
+      "href": "https://al-marsam.vercel.app/openapi.json",
+      "type": "application/vnd.oai.openapi+json;version=3.0",
+      "title": "Al Marsam API"
+    },
+    {
+      "anchor": "https://al-marsam.vercel.app",
+      "rel": ["status"],
+      "href": "https://al-marsam.vercel.app/api/health",
+      "type": "application/json",
+      "title": "Health Check"
+    }
+  ]
+}
